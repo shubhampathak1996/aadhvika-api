@@ -19,11 +19,11 @@ export class CategoryController {
 
   static async createCategory(req: Request, res: Response) {
     try {
-      const { name, slug } = req.body;
+      const { name, slug, description } = req.body;
       if (!name || !slug) {
         return res.status(400).json({ message: 'Name and slug are required.' });
       }
-      const category = await CategoryModel.create({ name, slug });
+      const category = await CategoryModel.create({ name, slug, description });
       res.status(201).json({ success: true, data: category });
     } catch (error: any) {
       res
@@ -76,10 +76,10 @@ export class CategoryController {
   static async updateCategory(req: Request, res: Response) {
     try {
       const { id } = req.params;
-      const { name, slug } = req.body;
+      const { name, slug, description } = req.body;
       const category = await CategoryModel.findByIdAndUpdate(
         id,
-        { name, slug },
+        { name, slug, description },
         { new: true, runValidators: true }
       );
       if (!category) {
