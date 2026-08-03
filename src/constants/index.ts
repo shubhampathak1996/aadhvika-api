@@ -1,7 +1,7 @@
 export enum ROUTES {
   UPLOAD = '/uploads',
   CAREERS = '/careers',
-  APPOINTMENT_BOOKINGS = '/appointment-bookings',
+  ENQUIRIES = '/enquiries',
   BLOG = '/blogs',
   CATEGORY = '/categories',
 }

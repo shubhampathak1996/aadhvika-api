@@ -1,10 +1,11 @@
 import { Schema, model, models, Document } from 'mongoose';
 
-export interface IAppointmentBooking extends Document {
+export interface IEnquiry extends Document {
   fullName: string;
   phone: string;
-  enquiryFor: string;
-  comments?: string;
+  service: string;
+  email?: string;
+  brief?: string;
   consent: boolean;
   isRead: boolean;
   status: 'new' | 'in-progress' | 'resolved';
@@ -12,7 +13,7 @@ export interface IAppointmentBooking extends Document {
   updatedAt?: Date;
 }
 
-const AppointmentBookingSchema = new Schema<IAppointmentBooking>(
+const EnquirySchema = new Schema<IEnquiry>(
   {
     fullName: {
       type: String,
@@ -23,22 +24,24 @@ const AppointmentBookingSchema = new Schema<IAppointmentBooking>(
     phone: {
       type: String,
       required: [true, 'Phone number is required'],
-      minlength: [10, 'Phone number must be at least 10 digits'],
-      maxlength: [15, 'Phone number is too long'],
+      minlength: [7, 'Phone number must be at least 7 digits'],
+      maxlength: [20, 'Phone number is too long'],
       trim: true,
     },
-    enquiryFor: {
+    service: {
       type: String,
-      required: [true, 'Enquiry type is required'],
-      enum: {
-        values: ['skin', 'hair', 'body', 'face'],
-        message: 'Invalid enquiry type',
-      },
+      required: [true, 'Service is required'],
       trim: true,
     },
-    comments: {
+    email: {
       type: String,
       trim: true,
+      lowercase: true,
+    },
+    brief: {
+      type: String,
+      trim: true,
+      maxlength: [1000, 'Brief cannot exceed 1000 characters'],
     },
     consent: {
       type: Boolean,
@@ -61,8 +64,8 @@ const AppointmentBookingSchema = new Schema<IAppointmentBooking>(
   { timestamps: true },
 );
 
-export const AppointmentBookingModel =
-  models.AppointmentBooking ||
-  model<IAppointmentBooking>('AppointmentBooking', AppointmentBookingSchema);
+export const EnquiryModel =
+  models.Enquiry ||
+  model<IEnquiry>('Enquiry', EnquirySchema);
 
-export default AppointmentBookingModel;
+export default EnquiryModel;

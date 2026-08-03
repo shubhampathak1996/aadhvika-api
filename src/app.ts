@@ -9,7 +9,7 @@ import path from 'path';
 
 import UploadRoutes from './routes/UploadRoutes';
 import CareerRoutes from './routes/CareerRoutes';
-import AppointmentBookingRoutes from './routes/AppointmentBookingRoutes';
+import EnquiryRoutes from './routes/EnquiryRoutes';
 import BlogRoutes from './routes/BlogRoutes';
 import CategoryRoutes from './routes/CategoryRoutes';
 
@@ -55,7 +55,7 @@ class App {
   private routes(): void {
     this.app.use(ROUTES.UPLOAD, UploadRoutes);
     this.app.use(ROUTES.CAREERS, CareerRoutes);
-    this.app.use(ROUTES.APPOINTMENT_BOOKINGS, AppointmentBookingRoutes);
+    this.app.use(ROUTES.ENQUIRIES, EnquiryRoutes);
     this.app.use(ROUTES.BLOG, BlogRoutes);
     this.app.use(ROUTES.CATEGORY, CategoryRoutes);
 
