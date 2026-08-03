@@ -3,4 +3,5 @@ export enum ROUTES {
   CAREERS = '/careers',
   APPOINTMENT_BOOKINGS = '/appointment-bookings',
   BLOG = '/blogs',
+  CATEGORY = '/categories',
 }
