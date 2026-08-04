@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { IFilter } from '../interfaces/IFilter';
 import slugify from 'slugify';
 
 class BaseController {
