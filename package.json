@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js -p 3823"
+    "start": "node dist/server.js -p 3823",
+    "deploy": "bash deploy.sh"
   },
   "keywords": [],
   "author": "",

@@ -8,8 +8,8 @@ node_modules/
 .env.production
 .env.staging
 
-# Build output
-dist/
+# Build output (dist is tracked for deployment without building on server)
+# dist/
 build/
 
 # Logs
