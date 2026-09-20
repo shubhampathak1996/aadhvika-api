@@ -3,7 +3,7 @@ import { BaseRepository } from '../repositories/BaseRepository';
 import { Document } from 'mongoose';
 import * as qs from 'qs';
 
-export class BaseService<T extends Document<unknown, any, any>> {
+export class BaseService<T extends Document> {
   private repository: BaseRepository<T>;
 
   constructor(repository: BaseRepository<T>) {
